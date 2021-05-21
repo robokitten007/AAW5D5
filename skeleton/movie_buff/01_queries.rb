@@ -48,10 +48,9 @@ def biggest_cast
   Movie
   .select(:id,:title)
   .joins(:castings)
-  .group('castings.actor_id')
+  .group(:id)
   .order('Count(castings.actor_id) DESC')
   .limit(3)
-  
 end
 
 def directed_by_one_of(them)
